@@ -1,55 +1,67 @@
-import React from 'react'
+import React from "react";
+import { Menu, ShoppingCart, Search, User } from "lucide-react";
 
 const Header = () => {
+  const menuItem = [
+    { id: 1, name: "Home", link: "/" },
+    { id: 2, name: "About", link: "/about" },
+    { id: 3, name: "Mens", link: "/mens" },
+    { id: 4, name: "Women", link: "/women" },
+    { id: 5, name: "Contact", link: "/contact" },
+  ];
+
   return (
-    <div className='flex'>
+    <header className="w-full border-b bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-xl">
+      <nav className="max-w-7xl mx-auto ">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <div className="flex items-center gap-3 cursor-pointer">
+            <img src="./logo.svg" alt="logo" className="w-50 h-10" />
+           
+          </div>
 
-    <div className="flex max-lg:collapse bg-base-200 lg:mb-48 shadow-sm w-full rounded-md">
-  <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
-  <label htmlFor="navbar-1-toggle" className="fixed inset-0 hidden max-lg:peer-checked:block"></label>
-  <div className="collapse-title navbar">
-    <div className="navbar-start">
-      <label htmlFor="navbar-1-toggle" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </label>
-      <button className="btn btn-ghost text-xl">daisyUI</button>
-    </div>
-    <div className="navbar-center hidden lg:flex">
-      <ul className="menu menu-horizontal px-1">
-        <li><button>Item 1</button></li>
-        <li>
-          <details>
-            <summary>Parent</summary>
-            <ul className="p-2 bg-base-100 w-40 z-1">
-              <li><button>Submenu 1</button></li>
-              <li><button>Submenu 2</button></li>
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center">
+            <ul className="flex items-center gap-8">
+              {menuItem.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={item.link}
+                    className="relative text-gray-700 font-medium capitalize hover:text-black transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </details>
-        </li>
-        <li><button>Item 3</button></li>
-      </ul>
-    </div>
-    <div className="navbar-end">
-      <input type="text" placeholder="Search" className="input input-bordered w-64 lg:w-auto" />
-    </div>
-  </div>
+          </div>
 
-  <div className="collapse-content lg:hidden z-1">
-    <ul className="menu">
-      <li><button>Item 1</button></li>
-      <li>
-        <button>Parent</button>
-        <ul>
-          <li><button>Submenu 1</button></li>
-          <li><button>Submenu 2</button></li>
-        </ul>
-      </li>
-      <li><button>Item 3</button></li>
-    </ul>
-  </div>
-</div>
-    </div>
-  )
-}
+          {/* Right Side Icons */}
+          <div className="flex items-center gap-4">
+            <button className="hidden md:flex p-2 rounded-full hover:bg-gray-100 transition">
+              <Search className="w-5 h-5 text-gray-700" />
+            </button>
 
-export default Header
+            <button className="hidden md:flex p-2 rounded-full hover:bg-gray-100 transition">
+              <User className="w-5 h-5 text-gray-700" />
+            </button>
+
+            <button className="relative p-2 rounded-full hover:bg-gray-100 transition">
+              <ShoppingCart className="w-5 h-5 text-gray-700" />
+              <span className="absolute -top-1 -right-1 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                2
+              </span>
+            </button>
+
+            {/* Mobile Menu */}
+            <button className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition">
+              <Menu className="w-6 h-6 text-gray-700" />
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
