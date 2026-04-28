@@ -15,8 +15,8 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto ">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer">
-            <img src="./logo.svg" alt="logo" className="w-50 h-10" />
+          <div className="flex items-center gap-3 cursor-pointer w-50">
+            <img src="./logo.svg" alt="logo" className="w-full"/>
            
           </div>
 
