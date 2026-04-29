@@ -31,7 +31,7 @@ export default function Footer() {
    }
 
    return (
-      <footer className="bg-[#111] pt-16 pb-8 px-4 md:px-8">
+      <footer className="bg-[#111] dark:bg-slate-900 pt-16 pb-8 px-4 md:px-8">
          <div className="max-w-7xl mx-auto">
             <div className="grid min-[1200px]:grid-cols-3 gap-12 xl:gap-16">
                {/* Brand & Contact Section */}
@@ -80,7 +80,7 @@ export default function Footer() {
                </div>
             </div>
 
-            <hr className="my-8 border-neutral-700" />
+            <hr className="my-8 border-neutral-700 dark:border-amber-50" />
 
             {/* Bottom Legal Section */}
             <div className="flex flex-wrap gap-4 flex-col md:flex-row items-center md:justify-between">
