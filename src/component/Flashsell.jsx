@@ -67,7 +67,7 @@ const Flashsell = () => {
           {/* flashsale item */}
 
           <div className="pt-15 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 items-center justify-center gap-5">
-            {product.slice(0,8).map((product) => (
+            {product.slice(0, 8).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

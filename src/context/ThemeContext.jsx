@@ -1,23 +1,37 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
-const ThemeContext = createContext({})
+const ThemeContext = createContext({});
 
-const ThemeProvider= ({children})=>{
-    const [theme ,setTheme]= useState("light")
+const ThemeProvider = ({ children }) => {
+  // প্রথমে localStorage থেকে theme load করবে
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
 
-    const themeChange =() =>{
+  // theme change function
+  const themeChange = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
-     document.documentElement.classList.toggle("dark");
+  };
+
+  // theme change হলে localStorage + html class update হবে
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
 
     console.log(theme);
+  }, [theme]);
 
-    };
+  return (
+    <ThemeContext.Provider value={{ theme, themeChange }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
 
-    return(
-        <ThemeContext.Provider value={{theme, themeChange}}>
-            {children}
-        </ThemeContext.Provider>
-    )
-}
-export {ThemeContext};
+export { ThemeContext };
 export default ThemeProvider;
