@@ -3,6 +3,7 @@ import Banner from '../component/Banner'
 import Flashsell from '../component/Flashsell'
 import Limitted from '../component/Limitted'
 import Bestsell from '../component/Bestsell'
+import ContactPae from "../pages/ContactPae"
 
 const HomePage = () => {
   return (
@@ -11,7 +12,7 @@ const HomePage = () => {
     <Flashsell />
     <Limitted />
     <Bestsell />
-
+    <ContactPae />
     </>
   )
 }

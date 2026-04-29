@@ -5,11 +5,11 @@ import Container from "../component/section/Container";
 const ContactPae = () => {
   return (
 
-    <Section className="py-25">
+    <Section className="py-10 md:py-16 lg:py-25">
         <Container>
 
     <form className="px-4 mt-6">
-      <div className="max-w-4xl mx-auto">
+      <div className=" mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
           <div className="relative">
             <label
