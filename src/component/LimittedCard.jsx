@@ -24,7 +24,7 @@ const LimittedCard = ({ image, name }) => {
           {name}
         </h4>
 
-        <Button className="opacity-0 group-hover:opacity-100 duration-500 !bg-black">
+        <Button className="opacity-100 lg:opacity-0 group-hover:opacity-100 duration-500 !bg-black">
           Shop Now
         </Button>
       </div>
