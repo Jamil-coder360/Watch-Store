@@ -14,7 +14,7 @@ const ContactPae = () => {
           <div className="relative">
             <label
               htmlFor="first-name"
-              className="absolute -top-2 left-4 bg-white px-1.5 text-xs font-medium text-slate-900"
+              className="absolute -top-2 left-4 bg-white px-1.5 text-xs font-medium text-slate-900 "
             >
               First Name
             </label>
@@ -24,7 +24,7 @@ const ContactPae = () => {
               name="first-name"
               placeholder="John Smith"
               required
-              className="block w-full px-4 py-3 text-sm text-slate-900 bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
+              className="block w-full px-4 py-3 text-sm text-slate-900 dark:text-white bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
             />
           </div>
 
@@ -41,7 +41,7 @@ const ContactPae = () => {
               name="last-name"
               placeholder="Doe"
               required
-              className="block w-full px-4 py-3 text-sm text-slate-900 bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
+              className="block w-full px-4 py-3 text-sm text-slate-900 dark:text-white bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
             />
           </div>
 
@@ -58,7 +58,7 @@ const ContactPae = () => {
               name="email"
               placeholder="john@readymadeui.com"
               required
-              className="block w-full px-4 py-3 text-sm text-slate-900 bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
+              className="block w-full px-4 py-3 text-sm text-slate-900 dark:text-white bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
             />
           </div>
 
@@ -75,7 +75,7 @@ const ContactPae = () => {
               name="phone"
               placeholder="+11800-259-854"
               required
-              className="block w-full px-4 py-3 text-sm text-slate-900 bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
+              className="block w-full px-4 py-3 text-sm text-slate-900 dark:text-white bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
             />
           </div>
 
@@ -92,7 +92,7 @@ const ContactPae = () => {
               name="state"
               placeholder="New York"
               required
-              className="block w-full px-4 py-3 text-sm text-slate-900 bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
+              className="block w-full px-4 py-3 text-sm text-slate-900 dark:text-white bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
             />
           </div>
 
@@ -109,7 +109,7 @@ const ContactPae = () => {
               name="city"
               placeholder="Manhattan"
               required
-              className="block w-full px-4 py-3 text-sm text-slate-900 bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
+              className="block w-full px-4 py-3 text-sm text-slate-900 dark:text-white bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
             />
           </div>
 
@@ -126,7 +126,7 @@ const ContactPae = () => {
               name="street"
               placeholder="123 Main Street"
               required
-              className="block w-full px-4 py-3 text-sm text-slate-900 bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
+              className="block w-full px-4 py-3 text-sm text-slate-900 dark:text-white bg-transparent rounded-md outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600"
             />
           </div>
 
