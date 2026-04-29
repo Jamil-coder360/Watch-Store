@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu, ShoppingCart, Search, User, X } from "lucide-react";
 
 const Header = () => {
-  const [open ,setOpen]= useState(true);
+  const [open, setOpen] = useState(true);
   const menuItem = [
     { id: 1, name: "Home", link: "/" },
     { id: 2, name: "About", link: "/about" },
@@ -10,17 +10,16 @@ const Header = () => {
     { id: 4, name: "Women", link: "/women" },
     { id: 5, name: "Contact", link: "/contact" },
   ];
- const handleOpen = ()=>{
-  setOpen(!open)
- }
+  const handleOpen = () => {
+    setOpen(!open);
+  };
   return (
     <header className="w-full border-b bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-xl">
       <nav className="max-w-7xl mx-auto ">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer w-50">
-            <img src="./logo.svg" alt="logo" className="w-full"/>
-           
+            <img src="./logo.svg" alt="logo" className="w-full" />
           </div>
 
           {/* Desktop Menu */}
@@ -49,36 +48,47 @@ const Header = () => {
               <User className="w-5 h-5 text-gray-700" />
             </button>
 
-            <button className="relative p-2 rounded-full hover:bg-gray-100 transition">
-              <ShoppingCart className="w-5 h-5 text-gray-700" />
+            <button className="relative p-2 rounded-full hover:bg-gray-100 transition z-100">
+              <ShoppingCart className="w-5 h-5 text-olive-400 lg:text-gray-700 " />
               <span className="absolute -top-1 -right-1 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 2
               </span>
             </button>
+            <button
+              onClick={handleOpen}
+              className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition"
+            >
+              {open ? (
+                <X onClick={handleOpen} className="z-100 relative text-white" />
+              ) : (
+                <Menu onClick={handleOpen} className="w-6 h-6 text-gray-700" />
+              )}
+            </button>
 
             {/* Mobile Menu */}
-            <button onClick={handleOpen} className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition">
-              {open?<X onClick={handleOpen} /> 
- :<Menu onClick={handleOpen} className="w-6 h-6 text-gray-700" />
- }
-
-            </button>
-            {open && 
-           <div className="lg:hidden flex items-center">
-            <ul className="flex flex-col items-center gap-8">
-              {menuItem.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={item.link}
-                    className="relative text-gray-700 font-medium capitalize hover:text-black transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-black after:transition-all after:duration-300 hover:after:w-full"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-            }
+            <div
+              className={` lg:hidden py-25 px-15 flex items-center  bg-slate-500/90 backdrop-blur-2xl absolute top-0 w-full transition-all transform duration-500 ease-in-out ${
+                open
+                  ? "left-0 opacity-100 translate-0"
+                  : "-left-full opacity-0 -translate-x-full"
+              }`}
+            >
+              {open && (
+                <ul className="flex flex-col items-start gap-8">
+                  {menuItem.map((item) => (
+                    <li key={item.id}>
+                      <a
+                        onClick={handleOpen}
+                        href={item.link}
+                        className="relative text-white font-medium capitalize hover:text-black transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
         </div>
       </nav>
