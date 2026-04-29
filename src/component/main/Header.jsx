@@ -1,7 +1,8 @@
-import React from "react";
-import { Menu, ShoppingCart, Search, User } from "lucide-react";
+import React, { useState } from "react";
+import { Menu, ShoppingCart, Search, User, X } from "lucide-react";
 
 const Header = () => {
+  const [open ,setOpen]= useState(true);
   const menuItem = [
     { id: 1, name: "Home", link: "/" },
     { id: 2, name: "About", link: "/about" },
@@ -9,7 +10,9 @@ const Header = () => {
     { id: 4, name: "Women", link: "/women" },
     { id: 5, name: "Contact", link: "/contact" },
   ];
-
+ const handleOpen = ()=>{
+  setOpen(!open)
+ }
   return (
     <header className="w-full border-b bg-white/95 backdrop-blur-sm sticky top-0 z-50 shadow-xl">
       <nav className="max-w-7xl mx-auto ">
@@ -54,9 +57,28 @@ const Header = () => {
             </button>
 
             {/* Mobile Menu */}
-            <button className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition">
-              <Menu className="w-6 h-6 text-gray-700" />
+            <button onClick={handleOpen} className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition">
+              {open?<X onClick={handleOpen} /> 
+ :<Menu onClick={handleOpen} className="w-6 h-6 text-gray-700" />
+ }
+
             </button>
+            {open && 
+           <div className="lg:hidden flex items-center">
+            <ul className="flex flex-col items-center gap-8">
+              {menuItem.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={item.link}
+                    className="relative text-gray-700 font-medium capitalize hover:text-black transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+            }
           </div>
         </div>
       </nav>
