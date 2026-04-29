@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @import "daisyui/daisyui.css";
+
+@custom-variant dark (&:where(.dark , .dark *));
+
+.dark ul li a {
+  color: white;
+}
