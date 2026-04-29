@@ -2,6 +2,7 @@ import React from 'react'
 import Banner from '../component/Banner'
 import Flashsell from '../component/Flashsell'
 import Limitted from '../component/Limitted'
+import Bestsell from '../component/Bestsell'
 
 const HomePage = () => {
   return (
@@ -9,6 +10,8 @@ const HomePage = () => {
     <Banner />
     <Flashsell />
     <Limitted />
+    <Bestsell />
+
     </>
   )
 }
