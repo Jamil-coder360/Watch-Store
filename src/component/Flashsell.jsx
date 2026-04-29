@@ -3,22 +3,23 @@ import Section from "./section/Section";
 import Container from "./section/Container";
 import useCountDown from "../hooks/UseCountDown";
 import ProductCard from "./ProductCard";
-
+import product from "../data";
 const Flashsell = () => {
   const { days, minutes, hours, seconds } = useCountDown("2026-05-09T23:59:59");
 
   return (
     <Section className="py-10 md:py-16 lg:py-30 ">
       <Container>
-        <div> 
-            {/* flashsell component header */}
+        <div className="">
+          {/* flashsell component header */}
           <div className="flex flex-col lg:flex-row items-center  justify-between">
             <h3 className="text-[40px] leading-[1.5] font-bold text-[#857757]">
               Flash Sell
             </h3>
             <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10">
-
-              <h1 className="text-3xl lg:text-[40px] leading-[1.5] font-bold text-[#dd8613]">Flash Sale Ends In :</h1>
+              <h1 className="text-3xl lg:text-[40px] leading-[1.5] font-bold text-[#dd8613]">
+                Flash Sale Ends In :
+              </h1>
               {/* <span className="text-black space-x-4">{days}d {hours}:{minutes}:{seconds}</span> */}
               <div className="flex  gap-2 text-black items-center mt-2  ">
                 <div className="flex flex-col items-center gap-1 ">
@@ -63,14 +64,14 @@ const Flashsell = () => {
             </div>
           </div>
 
-        {/* flashsale item */}
+          {/* flashsale item */}
 
-        <div className="pt-15">
-            <ProductCard />
+          <div className="pt-15 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 items-center justify-center gap-5">
+            {product.slice(0,8).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
-        </div>
-
-
       </Container>
     </Section>
   );

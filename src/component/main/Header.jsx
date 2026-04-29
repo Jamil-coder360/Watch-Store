@@ -61,8 +61,8 @@ const Header = () => {
             </button>
             <div className="relative items-center flex pr-4 lg:pr-0">
 
-            <SunDimIcon  onClick={themeChange} className={` absolute text-center text-amber-300 ${theme === "dark" ?"opacity-0":"opacity-100"}`} />
-            <MoonIcon  onClick={themeChange} className={` absolute text-center ${theme === "light" ?"opacity-0":"opacity-100"}`} />
+            <SunDimIcon  onClick={themeChange} className={` absolute text-center text-amber-300 ${theme === "light" ?"opacity-0":"opacity-100"}`} />
+            <MoonIcon  onClick={themeChange} className={` absolute text-center ${theme === "dark" ?"opacity-0":"opacity-100"}`} />
             </div>
 
 
