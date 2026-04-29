@@ -9,11 +9,11 @@ import ThemeProvider from "./context/ThemeContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-      <Provider store={store}>
-    <ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
         <App />
         <ToastContainer />
-    </ThemeProvider>
-      </Provider>
+      </ThemeProvider>
+    </Provider>
   </StrictMode>,
 );

@@ -16,7 +16,7 @@ const LimittedCard = ({ image, name }) => {
       className="pt-4 lg:pt-8.5 pl-10 pb-12 lg:pb-26.5 group hover:-translate-y-2.5 duration-500 hover:scale-110 border"
     >
       <div className="max-w-[280px] flex flex-col justify-center items-start">
-        <p className="text-[30px] text-red-500 font-bold leading-[42px] font-jost">
+        <p className="text-[40px] text-red-500 font-bold leading-[42px] font-jost">
           Limited Edition
         </p>
 

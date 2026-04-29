@@ -8,10 +8,10 @@ const Header = () => {
 
   const menuItem = [
     { id: 1, name: "Home", link: "/" },
-    { id: 2, name: "About", link: "/about" },
-    { id: 3, name: "Mens", link: "/mens" },
-    { id: 4, name: "Women", link: "/women" },
-    { id: 5, name: "Contact", link: "/contact" },
+    { id: 2, name: "About", link: "about" },
+    { id: 3, name: "Mens", link: "mens" },
+    { id: 4, name: "Women", link: "women" },
+    { id: 5, name: "Contact", link: "contact" },
   ];
 
   const handleOpen = () => {
