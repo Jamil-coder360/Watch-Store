@@ -10,7 +10,7 @@ const Flashsell = () => {
   return (
     <Section className="py-10 md:py-16 lg:py-30 ">
       <Container>
-        <div className="">
+        <div className="flex flex-col items-center">
           {/* flashsell component header */}
           <div className="flex flex-col lg:flex-row items-center  justify-between">
             <h3 className="text-[40px] leading-[1.5] font-bold text-[#857757]">
