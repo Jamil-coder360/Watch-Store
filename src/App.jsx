@@ -5,6 +5,8 @@ import Roots from './component/main/Roots';
 import HomePage from './pages/HomePage';
 import ContactPae from './pages/ContactPage';
 import NotfoundPage from './pages/NotfoundPage';
+import LoginPage from './pages/LoginPage';
+import SingUpPage from './pages/SingUpPage';
 
 
 const router = createBrowserRouter([
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path:"contact",
         element:<ContactPae />
+      },
+      {
+        path:"login",
+        element:<LoginPage />
+      },
+      {
+        path:"singup",
+        element:<SingUpPage />
       },
       {
         path:"*",

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Menu, ShoppingCart, Search, User, X, SunDimIcon, MoonIcon, MoonStarIcon, Moon } from "lucide-react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { Link } from "react-router";
 
 const Header = () => {
   const {theme , themeChange} = useContext(ThemeContext);
@@ -48,10 +49,12 @@ const Header = () => {
             <button className="hidden md:flex p-2 rounded-full hover:bg-gray-100 transition">
               <Search className="w-5 h-5 text-gray-700 dark:text-white " />
             </button>
+<Link to={"login"}>
 
             <button className="hidden md:flex p-2 rounded-full hover:bg-gray-100 transition">
               <User className="w-5 h-5 text-gray-700 dark:text-white " />
             </button>
+</Link>
 
             <button className="relative p-2 rounded-full hover:bg-gray-100 transition">
               <ShoppingCart className="w-5 h-5 text-gray-700 dark:text-white " />

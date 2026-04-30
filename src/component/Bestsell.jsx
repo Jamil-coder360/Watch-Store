@@ -19,7 +19,7 @@ const Bestsell = () => {
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
-            <Button className="!bg-[#ee1313] w-[300px]">
+            <Button Tagname="a" href="/product" className="!bg-[#ee1313] w-[300px]">
               Show More
             </Button>
 
