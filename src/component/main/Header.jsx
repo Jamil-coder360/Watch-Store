@@ -1,10 +1,20 @@
 import React, { useContext, useState } from "react";
-import { Menu, ShoppingCart, Search, User, X, SunDimIcon, MoonIcon, MoonStarIcon, Moon } from "lucide-react";
+import {
+  Menu,
+  ShoppingCart,
+  Search,
+  User,
+  X,
+  SunDimIcon,
+  MoonIcon,
+  MoonStarIcon,
+  Moon,
+} from "lucide-react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-router";
 
 const Header = () => {
-  const {theme , themeChange} = useContext(ThemeContext);
+  const { theme, themeChange } = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
 
   const menuItem = [
@@ -49,12 +59,11 @@ const Header = () => {
             <button className="hidden md:flex p-2 rounded-full hover:bg-gray-100 transition">
               <Search className="w-5 h-5 text-gray-700 dark:text-white " />
             </button>
-<Link to={"login"}>
-
-            <button className="hidden md:flex p-2 rounded-full hover:bg-gray-100 transition">
-              <User className="w-5 h-5 text-gray-700 dark:text-white " />
-            </button>
-</Link>
+            <Link to={"login"}>
+              <button className="flex p-2 rounded-full hover:bg-gray-100 transition">
+                <User className="w-5 h-5 text-gray-700 dark:text-white " />
+              </button>
+            </Link>
 
             <button className="relative p-2 rounded-full hover:bg-gray-100 transition">
               <ShoppingCart className="w-5 h-5 text-gray-700 dark:text-white " />
@@ -63,11 +72,15 @@ const Header = () => {
               </span>
             </button>
             <div className="relative items-center flex pr-4 lg:pr-0">
-
-            <SunDimIcon  onClick={themeChange} className={` absolute text-center text-amber-300 ${theme === "light" ?"opacity-0":"opacity-100"}`} />
-            <MoonIcon  onClick={themeChange} className={` absolute text-center ${theme === "dark" ?"opacity-0":"opacity-100"}`} />
+              <SunDimIcon
+                onClick={themeChange}
+                className={` absolute text-center text-amber-300 ${theme === "light" ? "opacity-0" : "opacity-100"}`}
+              />
+              <MoonIcon
+                onClick={themeChange}
+                className={` absolute text-center ${theme === "dark" ? "opacity-0" : "opacity-100"}`}
+              />
             </div>
-
 
             {/* Mobile Menu Button */}
             <button
@@ -86,11 +99,10 @@ const Header = () => {
         {/* Mobile Menu */}
         <div
           className={`lg:hidden fixed top-0 left-0 h-screen w-full bg-slate-900/95 backdrop-blur-xl transition-all duration-500 ease-in-out ${
-            open
-              ? "translate-x-0 opacity-100"
-              : "-translate-x-full opacity-0"
+            open ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
           }`}
         >
+
           <ul className="flex flex-col items-start justify-center h-full gap-10 px-12">
             {menuItem.map((item) => (
               <li key={item.id} onClick={() => setOpen(false)}>
@@ -103,6 +115,8 @@ const Header = () => {
               </li>
             ))}
           </ul>
+
+                 
         </div>
       </nav>
     </header>
