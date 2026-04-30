@@ -1,10 +1,11 @@
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider ,signOut  } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase.config";
 import { toast } from "react-toastify";
 const AuthContext = createContext({});
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     const unSubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -54,21 +55,36 @@ createUserWithEmailAndPassword(auth, email, password)
 
   const signIn=(email,password)=>{
 
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    toast.success("loging succes")
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+
+ return signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //   // Signed in 
+  //   const user = userCredential.user;
+  //   navigate("/");
+  //   toast.success("loging succes")
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   const errorCode = error.code;
+  //   const errorMessage = error.message;
+  //   toast.warning("please enter the valid data")
+  // });
+  }
+
+  const logOut = ()=>{
+
+
+signOut(auth).then(() => {
+  toast.success("logout successful")
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+
   }
 
   return (
-    <AuthContext value={{ user, signUpWithGoogle ,signUp ,signIn }}>{children}</AuthContext>
+    <AuthContext value={{ user, signUpWithGoogle ,signUp ,signIn,logOut }}>{children}</AuthContext>
   );
 };
 

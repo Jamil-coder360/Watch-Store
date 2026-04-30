@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
-
+import auth from "../firebase.config";
+import { toast } from "react-toastify";
 const LoginPage = () => {
 
 const {user,signIn}=useContext(AuthContext)
+const navigate = useNavigate();
  const [email, setEmil] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [name, setName] = React.useState("");
@@ -16,7 +18,20 @@ const {user,signIn}=useContext(AuthContext)
       password: password,
     });
     
-    signIn(email , password);
+    signIn(email , password)
+      .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    navigate("/");
+    toast.success("loging succes")
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    toast.warning("please enter the valid data")
+  });
+    // navigate("/");
   
   }
   // const handleChange=(event)=>{

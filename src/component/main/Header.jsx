@@ -11,10 +11,13 @@ import {
   Moon,
 } from "lucide-react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router";
+import UserDropdown from "../UserDropdown";
 
 const Header = () => {
   const { theme, themeChange } = useContext(ThemeContext);
+  const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
   const menuItem = [
@@ -34,9 +37,12 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer w-40 sm:w-50 z-50">
-            <img src="./logo.svg" alt="logo" className="w-full" />
-          </div>
+
+          <Link to={"/"}>
+            <div className="flex items-center gap-3 cursor-pointer w-40 sm:w-50 z-50">
+              <img src="./logo.svg" alt="logo" className="w-full" />
+            </div>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center">
@@ -56,21 +62,33 @@ const Header = () => {
 
           {/* Right Side Icons */}
           <div className="flex items-center gap-3 sm:gap-4 z-50">
-            <button className="hidden md:flex p-2 rounded-full hover:bg-gray-100 transition">
-              <Search className="w-5 h-5 text-gray-700 dark:text-white " />
+            <button className="hidden md:flex p-2 rounded-full transition">
+              <Search className="w-5 h-5 text-gray-700   dark:text-white " />
             </button>
-            <Link to={"login"}>
-              <button className="flex p-2 rounded-full hover:bg-gray-100 transition">
-                <User className="w-5 h-5 text-gray-700 dark:text-white " />
-              </button>
-            </Link>
+            {/* user valid or login logic */}
+            {user ? (
+              <div className="relative group">
+                <button className="flex p-2 rounded-full cursor-pointer  transition">
+                  <User className="w-5 h-5 text-gray-700 dark:text-white " />
+                </button>
 
-            <button className="relative p-2 rounded-full hover:bg-gray-100 transition">
-              <ShoppingCart className="w-5 h-5 text-gray-700 dark:text-white " />
+                <UserDropdown className="absolute top-full right-0 mt-2 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50" />
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="flex p-2 rounded-full  transition cursor-pointer">
+                  <User className="w-5 h-5 text-gray-700 dark:text-white" />
+                </button>
+              </Link>
+            )}
+            {/* add to cart menu */}
+            <button className="relative p-2 rounded-full transition">
+              <ShoppingCart className="w-5 h-5 text-gray-700   dark:text-white " />
               <span className="absolute -top-1 -right-1 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 2
               </span>
             </button>
+            {/* light mood dark mood */}
             <div className="relative items-center flex pr-4 lg:pr-0">
               <SunDimIcon
                 onClick={themeChange}
@@ -102,7 +120,6 @@ const Header = () => {
             open ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
           }`}
         >
-
           <ul className="flex flex-col items-start justify-center h-full gap-10 px-12">
             {menuItem.map((item) => (
               <li key={item.id} onClick={() => setOpen(false)}>
@@ -115,8 +132,6 @@ const Header = () => {
               </li>
             ))}
           </ul>
-
-                 
         </div>
       </nav>
     </header>
