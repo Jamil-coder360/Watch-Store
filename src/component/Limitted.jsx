@@ -17,7 +17,7 @@ const Limitted = () => {
     <Section className="pb-25">
       <Container>
         <div>
-          <h1 className="capitalize text-[40px] leading-[1.5] font-bold text-[#857757] pb-5">
+          <h1 className="capitalize text-[40px] leading-[1.5] font-bold text-[#857757] pb-10">
             limited edition
           </h1>
           <Swiper

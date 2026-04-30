@@ -9,8 +9,8 @@ const Bestsell = () => {
     <Section className="">
       <Container>
         <div className="flex flex-col items-center">
-          <div>
-            <h1 className="text-[40px] leading-[1.5] font-bold text-[#857757] capitalize">
+          <div className="text-start  w-full">
+            <h1 className="text-[40px] text-start leading-[1.5] font-bold text-[#857757] capitalize">
               populer product
             </h1>
           </div>
