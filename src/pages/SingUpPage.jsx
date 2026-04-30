@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
 import google from "../assets/google.svg";
+import { AuthContext } from "../context/AuthContext";
 const SingUpPage = () => {
+const {user , signUpWithGoogle }=useContext(AuthContext)
+
+  const [email, setEmil] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [name, setName] = React.useState("");
+  function handleSubmit(event) {
+    console.log("from submit");
+    event.preventDefault();
+    console.log("from submit", {
+      email: email,
+      password: password,
+    });
+  }
+  // const handleChange=(event)=>{
+  //   setName(event.target.value)
+  //   setPassword(event.target.value)
+  // }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "email") setEmil(value);
+    if (name === "password") setPassword(value);
+  };
   return (
     <main className="bg-gray-50 px-4 md:px-8 dark:bg-neutral-900">
       <div className="min-h-screen flex flex-col items-center justify-center">
@@ -20,10 +45,11 @@ const SingUpPage = () => {
                   Email
                 </label>
                 <input
+                  onChange={handleChange}
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="john@readymadeui.com"
+                  placeholder="Enter your Email"
                   required
                   className="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-700 dark:outline-neutral-600"
                 />
@@ -36,10 +62,11 @@ const SingUpPage = () => {
                   Password
                 </label>
                 <input
+                  onChange={handleChange}
                   type="password"
                   id="password"
                   name="password"
-                  placeholder="••••••••"
+                  placeholder="Enter Your Password"
                   required
                   className="px-3 py-2.5 text-sm text-slate-900 rounded-md bg-white w-full outline-1 -outline-offset-1 outline-slate-300 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 dark:text-slate-50 dark:bg-neutral-700 dark:outline-neutral-600"
                 />
@@ -79,22 +106,16 @@ const SingUpPage = () => {
                     Remember me
                   </span>
                 </label>
-
-                <a
-                  href="#"
-                  className="ml-auto text-sm font-medium text-blue-700 dark:text-blue-500 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
-                >
-                  Forgot password?
-                </a>
               </div>
               <button
+                onClick={handleSubmit}
                 type="submit"
                 className="w-full py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 sign up
               </button>
               <button
-                type="submit"
+              onClick={signUpWithGoogle}
                 className="flex items-center justify-center w-full py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-blue-600 bg-white hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 <img src={google} alt="" />
