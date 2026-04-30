@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider ,signOut  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider ,signOut, sendEmailVerification  } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase.config";
 import { toast } from "react-toastify";
@@ -22,6 +22,9 @@ createUserWithEmailAndPassword(auth, email, password)
     // Signed up 
     const user = userCredential.user;
     toast.success("singup succesful")
+    sendEmailVerification(user).than(()=>
+      alert("active")
+    );
     // ...
   })
   .catch((error) => {

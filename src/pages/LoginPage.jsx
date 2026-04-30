@@ -31,6 +31,7 @@ const navigate = useNavigate();
     const errorMessage = error.message;
     toast.warning("please enter the valid data")
   });
+    // navigate("/");
   
   }
   // const handleChange=(event)=>{

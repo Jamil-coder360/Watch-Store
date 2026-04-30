@@ -30,6 +30,7 @@ const {user , signUpWithGoogle,signUp }=useContext(AuthContext)
     if (name === "email") setEmil(value);
     if (name === "password") setPassword(value);
   };
+  
   return (
     <main className="bg-gray-50 px-4 md:px-8 dark:bg-neutral-900">
       <div className="min-h-screen flex flex-col items-center justify-center">
