@@ -6,7 +6,7 @@ import ProductCard from "./ProductCard";
 import Button from "./section/Button";
 const Bestsell = () => {
   return (
-    <Section className="pb-25">
+    <Section className="">
       <Container>
         <div className="flex flex-col items-center">
           <div>

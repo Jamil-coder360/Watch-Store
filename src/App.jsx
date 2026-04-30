@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Roots from './component/main/Roots';
 import HomePage from './pages/HomePage';
-import ContactPae from './pages/ContactPae';
+import ContactPae from './pages/ContactPage';
 import NotfoundPage from './pages/NotfoundPage';
 
 
