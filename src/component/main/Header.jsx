@@ -67,28 +67,28 @@ const Header = () => {
               <Search className="w-5 h-5 text-gray-700   dark:text-white " />
             </button>
             {/* user valid or login logic */}
-      {user ? (
-  <div className="relative">
-    <button
-      onClick={() => setOpenDropdown(!openDropdown)}
-      className="flex p-2 rounded-full cursor-pointer transition"
-    >
-      <User className="w-5 h-5 text-gray-700 dark:text-white" />
-    </button>
+            {user ? (
+              <div className="relative">
+                <button
+                  onClick={() => setOpenDropdown(!openDropdown)}
+                  className="flex p-2 rounded-full cursor-pointer transition"
+                >
+                  <User className="w-5 h-5 text-gray-700 dark:text-white" />
+                </button>
 
-    {openDropdown && (
-      <div className="absolute top-full right-0 mt-2 z-50">
-        <UserDropdown />
-      </div>
-    )}
-  </div>
-) : (
-  <Link to="/login">
-    <button className="flex p-2 rounded-full transition cursor-pointer">
-      <User className="w-5 h-5 text-gray-700 dark:text-white" />
-    </button>
-  </Link>
-)}
+                {openDropdown && (
+                  <div className="absolute top-full right-0 mt-2 z-50">
+                    <UserDropdown />
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="flex p-2 rounded-full transition cursor-pointer">
+                  <User className="w-5 h-5 text-gray-700 dark:text-white" />
+                </button>
+              </Link>
+            )}
             {/* add to cart menu */}
             <button className="relative p-2 rounded-full transition">
               <ShoppingCart className="w-5 h-5 text-gray-700   dark:text-white " />
