@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import google from "../assets/google.svg";
 import { AuthContext } from "../context/AuthContext";
 const SingUpPage = () => {
-const {user , signUpWithGoogle }=useContext(AuthContext)
+const {user , signUpWithGoogle,signUp }=useContext(AuthContext)
 
   const [email, setEmil] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -15,6 +15,9 @@ const {user , signUpWithGoogle }=useContext(AuthContext)
       email: email,
       password: password,
     });
+    
+    signUp(email , password);
+  
   }
   // const handleChange=(event)=>{
   //   setName(event.target.value)

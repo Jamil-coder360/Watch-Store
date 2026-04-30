@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../context/AuthContext";
 
 const LoginPage = () => {
+
+const {user,signIn}=useContext(AuthContext)
+ const [email, setEmil] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [name, setName] = React.useState("");
+  function handleSignin (event) {
+    console.log("from submit");
+    event.preventDefault();
+    console.log("from submit", {
+      email: email,
+      password: password,
+    });
+    
+    signIn(email , password);
+  
+  }
+  // const handleChange=(event)=>{
+  //   setName(event.target.value)
+  //   setPassword(event.target.value)
+  // }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "email") setEmil(value);
+    if (name === "password") setPassword(value);
+  };
+
+
   return (
     <main className="bg-gray-50 px-4 md:px-8 dark:bg-neutral-900">
       <div className="min-h-screen flex flex-col items-center justify-center">
@@ -20,6 +50,7 @@ const LoginPage = () => {
                   Email
                 </label>
                 <input
+                onChange={handleChange}
                   type="email"
                   id="email"
                   name="email"
@@ -36,6 +67,7 @@ const LoginPage = () => {
                   Password
                 </label>
                 <input
+                onChange={handleChange}
                   type="password"
                   id="password"
                   name="password"
@@ -88,7 +120,7 @@ const LoginPage = () => {
                 </a>
               </div>
               <button
-                type="submit"
+              onClick={handleSignin}
                 className="w-full py-2 px-3.5 text-sm rounded-md font-semibold cursor-pointer tracking-wide text-white border border-blue-600 bg-blue-600 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 login
