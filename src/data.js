@@ -118,7 +118,7 @@ const products = [
     id: 20,
     name: "Michael Kors Runway Watch",
     price: 28000,
-    image: "./Images/watch-20.png",
+    image: "./Images/watch-21.png",
   },
 ];
 

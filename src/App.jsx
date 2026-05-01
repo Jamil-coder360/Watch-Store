@@ -7,6 +7,7 @@ import ContactPae from './pages/ContactPage';
 import NotfoundPage from './pages/NotfoundPage';
 import LoginPage from './pages/LoginPage';
 import SingUpPage from './pages/SingUpPage';
+import ProductPage from './pages/ProductPage';
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path:"singup",
         element:<SingUpPage />
+      },
+      {
+        path:"product",
+        element:<ProductPage />
       },
       {
         path:"*",
