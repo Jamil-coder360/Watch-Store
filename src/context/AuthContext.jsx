@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider ,signOut, sendEmailVerification  } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider ,signOut, sendEmailVerification ,sendPasswordResetEmail  } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase.config";
 import { toast } from "react-toastify";
@@ -85,9 +85,22 @@ signOut(auth).then(() => {
 });
 
   }
+  const reset = (email) => {
+    if (!email) {
+      toast.warning("Please enter your email first!");
+      return;
+    }
 
+    return sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success("Password reset email sent!");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
-    <AuthContext value={{ user, signUpWithGoogle ,signUp ,signIn,logOut }}>{children}</AuthContext>
+    <AuthContext value={{ user, signUpWithGoogle ,signUp ,signIn,logOut,reset }}>{children}</AuthContext>
   );
 };
 

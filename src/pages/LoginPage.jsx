@@ -5,7 +5,7 @@ import auth from "../firebase.config";
 import { toast } from "react-toastify";
 const LoginPage = () => {
 
-const {user,signIn}=useContext(AuthContext)
+const {user,signIn ,reset}=useContext(AuthContext)
 const navigate = useNavigate();
  const [email, setEmil] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -46,6 +46,11 @@ const navigate = useNavigate();
     if (name === "password") setPassword(value);
   };
 
+
+  // const handleForgot=()=>{
+  //   e.preventDefault();
+
+  // }
 
   return (
     <main className="bg-gray-50 px-4 md:px-8 dark:bg-neutral-900">
@@ -127,12 +132,12 @@ const navigate = useNavigate();
                   </span>
                 </label>
 
-                <a
-                  href="#"
+                <button
+                onClick={() => reset(email)}
                   className="ml-auto text-sm font-medium text-blue-700 dark:text-blue-500 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
                 >
                   Forgot password?
-                </a>
+                </button>
               </div>
               <button
               onClick={handleSignin}
