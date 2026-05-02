@@ -30,6 +30,7 @@ createUserWithEmailAndPassword(auth, email, password)
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    toast.warning("please enter velid password avoid speacial charecters")
     // ..
   });
 }
@@ -93,7 +94,7 @@ signOut(auth).then(() => {
 
     return sendPasswordResetEmail(auth, email)
       .then(() => {
-        toast.success("Password reset email sent!");
+        toast.success("Password reset email sent!check your email");
       })
       .catch((error) => {
         toast.error(error.message);

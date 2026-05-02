@@ -17,6 +17,10 @@ const {user , signUpWithGoogle,signUp }=useContext(AuthContext)
     });
     
     signUp(email , password);
+    //  if (!user.emailVerified) {
+    //   toast.warning("Please verify your email first!");
+    //   return;
+    // }
   
   }
   // const handleChange=(event)=>{
