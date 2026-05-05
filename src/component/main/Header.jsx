@@ -10,15 +10,20 @@ import {
   MoonStarIcon,
   Moon,
 } from "lucide-react";
+import { useSelector } from 'react-redux'
 import { ThemeContext } from "../../context/ThemeContext";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router";
 import UserDropdown from "../UserDropdown";
+import CartPage from "../../pages/CartPage";
 
 const Header = () => {
   const { theme, themeChange } = useContext(ThemeContext);
   const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const [openDropdown, setOpenDropdown] = useState(false);
 
   const menuItem = [
@@ -90,12 +95,25 @@ const Header = () => {
               </Link>
             )}
             {/* add to cart menu */}
-            <button className="relative p-2 rounded-full transition">
-              <ShoppingCart className="w-5 h-5 text-gray-700   dark:text-white " />
-              <span className="absolute -top-1 -right-1 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                2
-              </span>
+          {/* <Link to={"cart"}> */}
+          
+            <button
+              onClick={() => setCartOpen((prev) => !prev)}
+              className="relative p-2 rounded-full transition"
+              type="button"
+            >
+              <ShoppingCart className="w-5 h-5 text-gray-700 dark:text-white" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </button>
+
+            <CartPage cartOpen={cartOpen} setCartOpen={setCartOpen} />
+
+
+          {/* </Link> */}
             {/* light mood dark mood */}
             <div className="relative items-center flex pr-4 lg:pr-0">
               <SunDimIcon

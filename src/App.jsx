@@ -8,6 +8,7 @@ import NotfoundPage from './pages/NotfoundPage';
 import LoginPage from './pages/LoginPage';
 import SingUpPage from './pages/SingUpPage';
 import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path:"product",
         element:<ProductPage />
+      },
+      {
+        path:"cart",
+        element:<CartPage />
       },
       {
         path:"*",
