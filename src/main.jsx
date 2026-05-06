@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")).render(
       <AuthProvider>
         <ThemeProvider>
           <App />
-          <ToastContainer />
+          <ToastContainer position="top-left" style={{ zIndex: 10000 }} />
         </ThemeProvider>
       </AuthProvider>
     </Provider>

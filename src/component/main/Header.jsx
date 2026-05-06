@@ -23,7 +23,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
-  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCount = cartItems.reduce((sum, item) => sum + (item?.quantity || 0), 0);
   const [openDropdown, setOpenDropdown] = useState(false);
 
   const menuItem = [

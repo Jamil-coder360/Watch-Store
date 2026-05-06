@@ -19,7 +19,7 @@ const CartPage = ({ cartOpen, setCartOpen }) => {
   }
 
   const content = (
-    <div className="relative z-[9999] flex h-full flex-col  bg-white shadow-xl">
+    <div className="relative z-[999] flex h-full flex-col  bg-white shadow-xl">
       <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
         {cartItems.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-gray-300 p-10 text-center text-gray-500">
@@ -124,7 +124,7 @@ const CartPage = ({ cartOpen, setCartOpen }) => {
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
               <DialogPanel
                 transition
-                className=" z-[9999] pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700"
+                className=" z-100 pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700"
               >
                 <div className="flex h-full flex-col overflow-y-auto bg-white shadow-xl">
                   <div className="flex items-start justify-between px-4 py-6 sm:px-6">
