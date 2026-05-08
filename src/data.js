@@ -28,7 +28,7 @@ const products = [
     id: 5,
     name: "Seiko Presage Automatic Watch",
     price: 12500,
-    image: "./Images/watch-5.png",
+    image: "/Images/watch-5.png",
   },
   {
     id: 6,

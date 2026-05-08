@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
 import products from "../data";
@@ -26,8 +26,20 @@ const SingleProductPage = () => {
   };
 
   return (
-    <section className="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
+    <section className="py-8 bg-white md:py-16 lg:py-25 dark:bg-gray-900 antialiased">
       <div className="max-w-7xl px-4 mx-auto 2xl:px-0">
+        <div className="flex items-center gap-2 justify-start pb-20">
+          <Link to="/" className="text-slate-900">
+            Home
+          </Link>
+          <span className="text-slate-900">/</span>
+          <Link to="/contact" className="text-slate-900">
+            Contact
+          </Link>
+          <span className="text-slate-900">/</span>
+
+          <span className="text-slate-900"> {product.name}</span>
+        </div>
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
           <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
             <img
