@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import {
   Menu,
   ShoppingCart,
@@ -13,7 +13,7 @@ import {
 import { useSelector } from 'react-redux'
 import { ThemeContext } from "../../context/ThemeContext";
 import { AuthContext } from "../../context/AuthContext";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import UserDropdown from "../UserDropdown";
 import CartPage from "../../pages/CartPage";
 
@@ -34,8 +34,31 @@ const Header = () => {
     { id: 5, name: "Contact", link: "contact" },
   ];
 
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchInputRef = useRef(null);
+
   const handleOpen = () => {
     setOpen(!open);
+  };
+
+  const handleSearch = () => {
+    const query = searchTerm.trim();
+    if (query) {
+      navigate(`/product?q=${encodeURIComponent(query)}`);
+    } else {
+      navigate("/product");
+    }
+  };
+
+  const handleSearchIcon = () => {
+    if (!searchOpen) {
+      setSearchOpen(true);
+      setTimeout(() => searchInputRef.current?.focus(), 0);
+    } else {
+      handleSearch();
+    }
   };
 
   return (
@@ -68,9 +91,33 @@ const Header = () => {
 
           {/* Right Side Icons */}
           <div className="flex items-center gap-3 sm:gap-4 z-50">
-            <button className="hidden md:flex p-2 rounded-full transition">
-              <Search className="w-5 h-5 text-gray-700   dark:text-white " />
-            </button>
+              {searchOpen ? (
+                <div className="hidden md:flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 shadow-sm dark:bg-slate-900">
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Search watch"
+                    className="w-40 bg-transparent text-sm text-gray-700 outline-none border-0 placeholder:text-gray-400 dark:text-white"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleSearch}
+                    className="rounded-full p-2 text-gray-700 transition hover:bg-gray-100 dark:text-white dark:hover:bg-slate-800"
+                  >
+                    <Search className="w-5 h-5" />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleSearchIcon}
+                  className="hidden md:flex items-center justify-center rounded-full p-2 text-gray-700 transition hover:bg-gray-100 dark:text-white dark:hover:bg-slate-800"
+                >
+                  <Search className="w-5 h-5" />
+                </button>
+              )}
             {/* user valid or login logic */}
             {user ? (
               <div className="relative">

@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import SingUpPage from './pages/SingUpPage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
+import SingleProductPage from './pages/SingleProductPage';
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:"product",
         element:<ProductPage />
+      },
+      {
+        path:"product/:id",
+        element:<SingleProductPage />
       },
       {
         path:"cart",
