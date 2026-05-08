@@ -28,10 +28,10 @@ const Header = () => {
 
   const menuItem = [
     { id: 1, name: "Home", link: "/" },
-    { id: 2, name: "About", link: "about" },
-    { id: 3, name: "Mens", link: "mens" },
-    { id: 4, name: "Women", link: "women" },
-    { id: 5, name: "Contact", link: "contact" },
+    { id: 2, name: "About", link: "/about" },
+    { id: 3, name: "Mens", link: "/mens" },
+    { id: 4, name: "Women", link: "/women" },
+    { id: 5, name: "Contact", link: "/contact" },
   ];
 
   const navigate = useNavigate();
@@ -78,12 +78,12 @@ const Header = () => {
             <ul className="flex items-center gap-8">
               {menuItem.map((item) => (
                 <li key={item.id}>
-                  <a
-                    href={item.link}
-                    className="relative text-gray-700 font-medium capitalize hover:text-black transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-black dark:after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  <Link
+                    to={item.link}
+                    className="relative text-gray-700 font-medium capitalize hover:text-black dark:text-gray-200 dark:hover:text-white transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-black dark:after:bg-white after:transition-all after:duration-300 hover:after:w-full"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -196,12 +196,12 @@ const Header = () => {
           <ul className="flex flex-col items-start justify-center h-full gap-10 px-12">
             {menuItem.map((item) => (
               <li key={item.id} onClick={() => setOpen(false)}>
-                <a
-                  href={item.link}
+                <Link
+                  to={item.link}
                   className="text-3xl font-semibold text-white capitalize hover:text-lime-400 transition duration-300"
                 >
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

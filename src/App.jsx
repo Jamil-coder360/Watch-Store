@@ -10,6 +10,8 @@ import SingUpPage from './pages/SingUpPage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import SingleProductPage from './pages/SingleProductPage';
+import AboutPage from './pages/AboutPage';
+
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,11 @@ const router = createBrowserRouter([
         path:"contact",
         element:<ContactPae />
       },
+      {
+        path:"about",
+        element:<AboutPage />
+      },
+
       {
         path:"login",
         element:<LoginPage />
