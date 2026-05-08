@@ -26,19 +26,19 @@ const SingleProductPage = () => {
   };
 
   return (
-    <section className="py-8 bg-white md:py-16 lg:py-25 dark:bg-gray-900 antialiased">
+    <section className="py-8 bg-white md:py-16 lg:py-25 dark:bg-black antialiased">
       <div className="max-w-7xl px-4 mx-auto 2xl:px-0">
-        <div className="flex items-center gap-2 justify-start pb-20">
-          <Link to="/" className="text-slate-900">
+        <div className="flex items-center gap-2 justify-start pb-20 ">
+          <Link to="/" className="text-slate-900 dark:text-white">
             Home
           </Link>
-          <span className="text-slate-900">/</span>
-          <Link to="/contact" className="text-slate-900">
-            Contact
+          <span className="text-slate-900 dark:text-white">/</span>
+          <Link to="/product" className="text-slate-900 dark:text-white">
+            product
           </Link>
-          <span className="text-slate-900">/</span>
+          <span className="text-slate-900 dark:text-white">/</span>
 
-          <span className="text-slate-900"> {product.name}</span>
+          <span className="text-slate-900 dark:text-white"> {product.name}</span>
         </div>
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
           <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
